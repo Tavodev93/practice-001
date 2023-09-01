@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,800&family=Josefin+Sans:wght@300;400;600&display=swap');
+
+:root {
+    --font: hsl(0, 36%, 70%);
+    --error: hsl(0, 93%, 68%);
+    --header: hsl(0, 6%, 24%);
+    --white: hsl(0, 0%, 100%);
+  
+    --bg-gradient: linear-gradient(135deg, hsl(0, 0%, 100%) 0%, hsl(0, 100%, 98%) 100%);
+    --button-bg: linear-gradient(135deg, hsl(0, 80%, 86%) 0%, hsl(0, 74%, 74%) 100%);
+    --button-shadow: 0 15px 20px 0 hsla(0, 43%, 60%, 0.25);
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+  }
+
+.container {
+    min-height: 100svh;
+    background: linear-gradient(135deg, hsl(0, 0%, 100%) 0%, hsl(0, 100%, 98%) 100%);
+}
+
+.logo {
+    padding: 32px;
+}
+
+.logo__img {
+    width: 100px;
+}
+
+.hero-img {
+    height: 250px;
+    background-image: url(images/hero-mobile.jpg);
+    background-size: cover;
+}
+
+.information {
+    padding: 64px 32px;
+    margin: 0 auto;
+    max-width: 450px;
+}
+
+.first__information {
+    margin-bottom: 16px;
+    font-size: 4rem;
+    font-weight: 600;
+    line-height: 4.2rem;
+    letter-spacing: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--header);
+}
+
+.second__information {
+    font-weight: 300;
+    font-style: normal;
+    color: var(--font);
+}
+
+.final__information {
+    margin-bottom: 32px;
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+    text-align: center;
+    color: var(--font);
+}
+
+.final__information__form {
+    position: relative;
+}
+
+.form--error::after {
+    content: url(images/icon-error.svg);
+    position: absolute;
+    top: 50%;
+    right: 70px;
+    width: 24px;
+    height: 24px;
+    transform: translateY(-50%);
+}
+
+.form--error .form__email {
+    outline: 2px solid var(--error);
+    opacity: 1;
+}
+
+.form__email {
+    padding: 10px 100px 10px 24px;
+    border: 1px solid var(--font);
+    border-radius: 28px;
+    width: 100%;
+    opacity: 0.5;
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+    color: var(--font);
+}
+
+.form__email::placeholder {
+    color: var(--font);
+  }
+  
+  .form__message {
+    position: absolute;
+    bottom: -24px;
+    left: 24px;
+    font-size: 1.3rem;
+    color: var(--error);
+  }
+  
+  .form__submit {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    border: none;
+    border-radius: 28px;
+    width: 64px;
+    height: calc(100% + 4px);
+    background: var(--button-bg);
+    box-shadow: var(--button-shadow);
+    transition: opacity .2s;
+    cursor: pointer;
+  }
+  
+  .form__submit:hover {
+    opacity: .5;
+  }
+  
+  .form__submit::after {
+    content: url(images/icon-arrow.svg);
+    display: block;
+    margin: 0 auto;
+    width: 10px;
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      display: grid;
+      grid-template:
+        ". logo hero" 230px
+        ". form hero" auto
+        ". form hero" auto / minmax(10vw, 165px) 1fr 40vw;
+  
+      background-image: url(images/bg-pattern-desktop.svg);
+      background-size: 60vw 100vh;
+      background-repeat: no-repeat;
+    }
+  
+    .logo {
+      grid-area: logo;
+      padding: 64px 0 0;
+    }
+  
+    .logo__img {
+      width: 160px;
+    }
+  
+    .hero-img {
+      grid-area: hero;
+      height: 100svh;
+      background-image: url(images/hero-desktop.jpg);
+    }
+  
+    .information {
+      grid-area: form;
+      padding: 0;
+      margin: 0;
+    }
+  
+    .first__information,
+    .final__information {
+      text-align: left;
+    }
+  
+    .first__information {
+      margin-bottom: 32px;
+      font-size: 6.4rem;
+      line-height: 7.1rem;
+      letter-spacing: 1.7rem;
+    }
+  
+    .final__information {
+      margin-bottom: 40px;
+      font-size: 1.6rem;
+      line-height: 2.8rem;
+    }
+  
+    .form--error::after {
+      right: 114px;
+    }
+  
+    .form__email {
+      padding: 14px 150px 14px 32px;
+      font-size: 1.6rem;
+    }
+  
+    .form__submit {
+      width: 100px;
+    }
+  }
